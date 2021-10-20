@@ -5,9 +5,10 @@ import Button from 'react-bootstrap/Button';
 
 
 const VideoPlayer = ({videoID}) => {
+    const videoId = "wbernJatch?v=s4Bix"
     if (!videoID){
         return (
-            <col className='loading-spinner'>
+            <Col className='loading-spinner'>
                 <Button variant="dark" disabled >
                     <h3>Search for video</h3>
                     <Spinner 
@@ -19,7 +20,7 @@ const VideoPlayer = ({videoID}) => {
                     />
                     <h3>Loading...</h3>
                 </Button>
-            </col>
+            </Col>
         );
     }
     return(
@@ -35,5 +36,6 @@ const VideoPlayer = ({videoID}) => {
         </Col>
     );
 }
+
 
 export default VideoPlayer
