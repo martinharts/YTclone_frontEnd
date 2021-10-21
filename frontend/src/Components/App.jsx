@@ -4,6 +4,7 @@ import CommentCreator from "./CommentCreator/CommentCreator";
 import Comments from "./Comments/Comments";
 import axios from "axios";
 import Header from "./Header/Header";
+import SideBar from "./Sidebar/Sidebar";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -24,6 +25,9 @@ class App extends Component {
   render() {
     return (
       <div>
+        <div className="column">
+          <SideBar />
+        </div>
         <div className="row">
           <Header />
         </div>
