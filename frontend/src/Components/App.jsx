@@ -25,11 +25,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div className="column">
-          <SideBar />
-        </div>
         <div className="row">
           <Header />
+          <SideBar />
         </div>
         <div className="row bg-dark">
           <div className="col">
