@@ -4,8 +4,7 @@ import VideoPlayer from "./VideoPlayer/VideoPlayer";
 import Comments from "./Comments/Comments";
 import axios from "axios";
 import Header from "./Header/Header";
-
-
+import SideBar from "./Sidebar/Sidebar";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -31,6 +30,7 @@ class App extends Component {
       <div>
         <div className="row">
           <Header />
+          <SideBar />
         </div>
         <div className="row bg-dark">
           <div className="col">

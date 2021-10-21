@@ -23,7 +23,7 @@ const Header = () => {
 
         <img
           className="header__logo"
-          src="../images/logo.png"
+          src="../../images/logo.png"
           alt="YouTube Logo"
         />
       </div>
