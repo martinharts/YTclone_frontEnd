@@ -16,6 +16,10 @@ const Header = () => {
       .then((response) => setInputSearch(response.data["items"]));
   }, [inputSearch]);
 
+  const search = (e) => {
+    e.preventDefault();
+    setInputSearch(e.target[0].value);
+  };
   return (
     <div className="header">
       <div className="header__left">

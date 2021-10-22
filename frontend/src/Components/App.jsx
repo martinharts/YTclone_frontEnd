@@ -13,16 +13,16 @@ class App extends Component {
       comments: [],
     };
   }
-  createComment = async (comment, videoId) => {
-    comment.videoId = videoId;
-    let response = await axios.post("http://localhost:5000/comments/", comment);
-    let newComments = this.state.comments;
-    newComments.push(response.data);
-    console.log(response);
-    this.setState({
-      comments: newComments,
-    });
-  };
+  //   createComment = async (comment, videoId) => {
+  //     comment.videoId = videoId;
+  //     let response = await axios.post("http://localhost:5000/comments/", comment);
+  //     let newComments = this.state.comments;
+  //     newComments.push(response.data);
+  //     console.log(response);
+  //     this.setState({
+  //       comments: newComments,
+  //     });
+  //   };
   render() {
     return (
       <div>
@@ -38,7 +38,7 @@ class App extends Component {
         </div>
 
         <div className="row">
-          <CommentCreator createComment={this.createComment} />
+          {/* <CommentCreator createComment={this.createComment} /> */}
           <Comments comments={this.state.comments} />
         </div>
       </div>
