@@ -16,6 +16,7 @@ const Header = () => {
       .then((response) => setInputSearch(response.data["items"]));
   }, [inputSearch]);
 
+  //finish
   const search = (e) => {
     e.preventDefault();
     setInputSearch(e.target[0].value);
