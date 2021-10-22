@@ -5,6 +5,7 @@ import Comments from "./Comments/Comments";
 import axios from "axios";
 import Header from "./Header/Header";
 import SideBar from "./Sidebar/Sidebar";
+import RecVids from "./RecVid/RecVid";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -28,6 +29,7 @@ class App extends Component {
         <div className="row">
           <Header />
           <SideBar />
+          <RecVids />
         </div>
         <div className="row bg-dark">
           <div className="col">
