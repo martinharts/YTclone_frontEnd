@@ -28,7 +28,7 @@ class Comments extends Component{
 
 
     getComments = async () => {
-        let response = await axios.get(`http://localhost:5000/comments/get/${this.props.videoId}`);
+        let response = await axios.get(`http://localhost:5000/api/comments/get/${this.props.videoId}`);
         let allComments = response.data;
         let parentComments = [];
         let replies = [];
@@ -92,7 +92,7 @@ class Comments extends Component{
 
     likeComment = async (commentId) => {
         try{
-            await axios.get(`http://localhost:5000/comments/like/${commentId}`);
+            await axios.get(`http://localhost:5000/api/comments/like/${commentId}`);
             this.getInitialState()
         }
         catch(err){
@@ -102,7 +102,7 @@ class Comments extends Component{
 
     dislikeComment = async (commentId) => {
         try{
-            await axios.get(`http://localhost:5000/comments/dislike/${commentId}`);
+            await axios.get(`http://localhost:5000/api/comments/dislike/${commentId}`);
             this.getInitialState()
         }
         catch(err){
