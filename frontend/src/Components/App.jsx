@@ -13,18 +13,18 @@ class App extends Component {
         videoTitle: null,
         videoDescription: null,
         relatedVideos: [],
-    };
+    }
   }
-  createComment = async (comment, videoId) => {
-    comment.videoId = videoId;
-    let response = await axios.post("http://localhost:5000/comments/", comment);
-    let newComments = this.state.comments;
-    newComments.push(response.data);
-    console.log(response);
-    this.setState({
-      comments: newComments,
-    });
-  };
+//   createComment = async (comment, videoId) => {
+//     comment.videoId = videoId;
+//     let response = await axios.post("http://localhost:5000/comments/", comment);
+//     let newComments = this.state.comments;
+//     newComments.push(response.data);
+//     console.log(response);
+//     this.setState({
+//       comments: newComments,
+//     });
+//   };
   render() {
     return (
       <div>
