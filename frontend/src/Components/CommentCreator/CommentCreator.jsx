@@ -7,28 +7,23 @@ class CommentCreator extends Component{
     constructor(props){
         super(props);
         this.state = {
-            comment: "",
-            name: "",
+            text: "",
+            videoID: "",
         }
     }
 
     addComment = async () => {
         let comment = {
-            name: this.state.name,
-            comment: this.state.comment,
-            videoId: this.props.videoId,
-            replyToId: this.props.replyId
-        }
+            text: this.state.text,
+            videoID: "M7lc1UVf-VE"
+        } 
         try {
-            await axios.post('http://localhost:5000/comments/post', comment);
+            await axios.post('http://localhost:5000/api/comments/', comment)
+            .then((res) => console.log(res.data))
             this.setState({
                 name: '',
                 comment: '',
             });
-            this.props.refresh();
-            if (this.props.hide){
-                this.props.hide()
-            }
         }
         catch (err) {
             alert(err);
@@ -51,11 +46,8 @@ class CommentCreator extends Component{
             <div className="container jumbotron small" style={{maxHeight: '30vh'}}>
                 <h3>Comment</h3>
                 <Form onSubmit={this.handleSubmit}>
-                    <Form.Group  controlId="name">
-                        <Form.Control type="text" placeholder="Enter your name" name='name' onChange={this.handleChange} value={this.state.name}/>
-                    </Form.Group>  
                     <Form.Group controlId="comment">
-                        <Form.Control type="text" placeholder="Leave a comment..." name='comment' value={this.state.comment} onChange={this.handleChange}/>
+                        <Form.Control type="text" placeholder="Leave a comment..." name='text' value={this.state.text} onChange={this.handleChange}/>
                     </Form.Group>           
                     <Button variant="primary" type="submit">Add Comment</Button>
                 </Form>
