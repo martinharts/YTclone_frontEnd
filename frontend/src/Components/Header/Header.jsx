@@ -16,32 +16,27 @@ const Header = () => {
       .then((response) => setInputSearch(response.data["items"]));
   }, [inputSearch]);
 
-  //finish
   const search = (e) => {
     e.preventDefault();
     setInputSearch(e.target[0].value);
   };
   return (
     <div className="header">
-      <div className="header__left">
+      <div className="headerLeftSide">
         <MenuIcon />
 
-        <img
-          className="header__logo"
-          src="../../images/logo.png"
-          alt="YouTube Logo"
-        />
+        <img className="logo" src="../../images/logo.png" alt="Logo" />
       </div>
 
-      <div className="header__input">
+      <div className="headerInput">
         <input type="text" placeholder="Search" />
-        <SearchIcon className="header__inputButton" type="submit" />
+        <SearchIcon className="headerButton" type="submit" />
       </div>
 
-      <div className="header__right">
-        <VideoCallIcon className="header__icon" />
-        <AppsIcon className="header__icon" />
-        <NotificationsIcon className="header__icon" />
+      <div className="headerRight">
+        <VideoCallIcon className="icon" />
+        <AppsIcon className="icon" />
+        <NotificationsIcon className="icon" />
       </div>
     </div>
   );

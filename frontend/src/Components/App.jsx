@@ -10,7 +10,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      comments: [],
+      videoId: null,
+      videoTitle: null,
+      videoDescription: null,
+      relatedVideos: [],
     };
   }
   //   createComment = async (comment, videoId) => {
@@ -37,9 +40,12 @@ class App extends Component {
           </div>
         </div>
 
-        <div className="row">
-          {/* <CommentCreator createComment={this.createComment} /> */}
-          <Comments comments={this.state.comments} />
+        <div className="col-8 col-md-9">
+          <Comments
+            videoId={this.state.videoId}
+            replyId={null}
+            key={this.state.videoId}
+          />
         </div>
       </div>
     );
