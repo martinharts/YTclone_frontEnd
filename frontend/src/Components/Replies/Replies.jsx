@@ -1,59 +1,41 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import CommentCreator from "../CommentCreator/CommentCreator";
+import axios from "axios";
 
-class Replies extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      show: false,
-    };
-  }
-
-  hideModal = () => {
-    this.setState({ show: false });
+const Replies = (props) => {
+  const [replyValue, setReplyValue] = useState({
+    text: "",
+  });
+  const handleChange = (event) => {
+    setReplyValue({
+      ...replyValue,
+      [event.target.name]: event.target.value,
+    });
   };
-
-  render() {
-    return (
-      <React.Fragment>
-        <Button
-          className="btn btn-primary btn-sm"
-          onClick={() => {
-            this.setState({ show: true });
-          }}
-        >
-          Reply
-        </Button>
-        <Modal
-          show={this.state.show}
-          onHide={() => this.setState({ show: false })}
-          backdrop="static"
-        >
-          <Modal.Header closeButton>
-            <Modal.Title>Reply</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <CommentCreator
-              videoId={this.props.videoId}
-              replyId={this.props.replyId}
-              refresh={this.props.refresh}
-              hide={this.hideModal}
-            />
-          </Modal.Body>
-          <Modal.Footer>
-            <Button
-              variant="secondary"
-              onClick={() => this.setState({ show: false })}
-            >
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </React.Fragment>
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // store the states in the form data
+    axios.post(
+      `http://localhost:5000/api/comments/${props.commentId}`,
+      replyValue
     );
-  }
-}
+  };
+  return (
+    <span>
+      <form id="replyForm" onSubmit={handleSubmit} rows="1">
+        <input
+          type="text"
+          name="text"
+          placeholder="Reply"
+          value={replyValue.text}
+          onChange={handleChange}
+        />
+        <button type="submit">Reply</button>
+      </form>
+    </span>
+  );
+};
 
 export default Replies;

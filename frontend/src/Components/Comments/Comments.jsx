@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
-import Replies from "../Replies/Replies";
+import Replies from "../../Replies/Replies";
 import CommentCreator from "../CommentCreator/CommentCreator";
 import Collapse from "react-bootstrap/Collapse";
 

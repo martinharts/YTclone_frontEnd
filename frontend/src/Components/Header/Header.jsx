@@ -7,14 +7,18 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import axios from "axios";
 import "./Header.css";
 
-const Header = () => {
+const Header = (FindVideo) => {
   const [inputSearch, setInputSearch] = useState("");
 
   useEffect(() => {
     axios
-      .get(`https://www.googleapis.com/youtube/v3/search?q=${inputSearch}&key=`)
-      .then((response) => setInputSearch(response.data["items"]));
-  }, [inputSearch]);
+      .get(
+        `https://www.googleapis.com/youtube/v3/search?q=${inputSearch}&key=AIzaSyAv-dQ9UtE9L7zl0qFuduSarD6bb87yQzo`
+      )
+      .then((res) => {
+        FindVideo(res.data["items"][0].id.videoID);
+      });
+  }, [inputSearch, FindVideo]);
 
   const search = (e) => {
     e.preventDefault();

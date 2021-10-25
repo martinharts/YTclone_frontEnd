@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import VideoPlayer from "./VideoPlayer/VideoPlayer";
-import CommentCreator from "./CommentCreator/CommentCreator";
+
 import Comments from "./Comments/Comments";
 import axios from "axios";
 import Header from "./Header/Header";
