@@ -10,15 +10,15 @@ import "./Header.css";
 const Header = (FindVideo) => {
   const [inputSearch, setInputSearch] = useState("");
 
-  useEffect(() => {
-    axios
-      .get(
-        `https://www.googleapis.com/youtube/v3/search?q=${inputSearch}&key=AIzaSyAv-dQ9UtE9L7zl0qFuduSarD6bb87yQzo`
-      )
-      .then((res) => {
-        FindVideo(res.data["items"][0].id.videoID);
-      });
-  }, [inputSearch, FindVideo]);
+  //   useEffect(() => {
+  //     axios
+  //       .get(
+  //         `https://www.googleapis.com/youtube/v3/search?q=${inputSearch}&key=AIzaSyAv-dQ9UtE9L7zl0qFuduSarD6bb87yQzo`
+  //       )
+  //       .then((res) => {
+  //         FindVideo(res.data["items"][0].id.videoID);
+  //       });
+  //   }, [inputSearch, FindVideo]);
 
   const search = (e) => {
     e.preventDefault();
